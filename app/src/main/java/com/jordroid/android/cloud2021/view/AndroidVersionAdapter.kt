@@ -1,7 +1,7 @@
 package com.jordroid.android.cloud2021.view
 
-import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -11,20 +11,27 @@ import com.jordroid.android.cloud2021.databinding.ItemCustomRecyclerHeaderBindin
 import com.jordroid.android.cloud2021.model.MyObjectForRecyclerView
 import com.jordroid.android.cloud2021.model.ObjectDataHeaderSample
 import com.jordroid.android.cloud2021.model.ObjectDataSample
-import java.lang.RuntimeException
 
 private val diffItemUtils = object : DiffUtil.ItemCallback<MyObjectForRecyclerView>() {
 
-    override fun areItemsTheSame(oldItem: MyObjectForRecyclerView, newItem: MyObjectForRecyclerView): Boolean {
+    override fun areItemsTheSame(
+        oldItem: MyObjectForRecyclerView,
+        newItem: MyObjectForRecyclerView
+    ): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: MyObjectForRecyclerView, newItem: MyObjectForRecyclerView): Boolean {
+    override fun areContentsTheSame(
+        oldItem: MyObjectForRecyclerView,
+        newItem: MyObjectForRecyclerView
+    ): Boolean {
         return oldItem == newItem
     }
 }
 
-class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.ViewHolder>(diffItemUtils) {
+class AndroidVersionAdapter(
+    private val onItemClick: (quoteUi: ObjectDataSample, view: View) -> Unit,
+) : ListAdapter<MyObjectForRecyclerView, RecyclerView.ViewHolder>(diffItemUtils) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         when (viewType) {
@@ -34,7 +41,7 @@ class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.
                         LayoutInflater.from(parent.context),
                         parent,
                         false
-                    )
+                    ), onItemClick
                 )
             }
             MyItemType.HEADER.type -> {
@@ -52,7 +59,11 @@ class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
         when (holder.itemViewType) {
             MyItemType.ROW.type -> (holder as AndroidVersionViewHolder).bind(getItem(position) as ObjectDataSample)
-            MyItemType.HEADER.type -> (holder as AndroidVersionHeaderViewHolder).bind(getItem(position) as ObjectDataHeaderSample)
+            MyItemType.HEADER.type -> (holder as AndroidVersionHeaderViewHolder).bind(
+                getItem(
+                    position
+                ) as ObjectDataHeaderSample
+            )
             else -> throw RuntimeException("Wrong view type received ${holder.itemView}")
         }
 
@@ -65,10 +76,20 @@ class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.
 }
 
 class AndroidVersionViewHolder(
-    private val binding: ItemCustomRecyclerBinding
+    private val binding: ItemCustomRecyclerBinding,
+    onItemClick: (objectDataSample: ObjectDataSample, view: View) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
+    private lateinit var ui: ObjectDataSample
+
+    init {
+        binding.root.setOnClickListener {
+            onItemClick(ui, itemView)
+        }
+    }
+
     fun bind(objectDataSample: ObjectDataSample) {
+        ui = objectDataSample
         binding.itemRecyclerViewVersionName.text = objectDataSample.versionName
         binding.itemRecyclerViewVersionCode.text = "${objectDataSample.versionCode}"
     }

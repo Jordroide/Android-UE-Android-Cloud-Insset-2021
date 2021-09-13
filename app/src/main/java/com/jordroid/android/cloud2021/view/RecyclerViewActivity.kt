@@ -1,6 +1,9 @@
 package com.jordroid.android.cloud2021.view
 
 import android.os.Bundle
+import android.view.HapticFeedbackConstants
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +23,9 @@ class RecyclerViewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Create the instance of adapter
-        adapter = AndroidVersionAdapter()
+        adapter = AndroidVersionAdapter { item, view ->
+            onItemClick(item, view)
+        }
 
         // We define the style
         binding.recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
@@ -30,6 +35,11 @@ class RecyclerViewActivity : AppCompatActivity() {
 
         // Generate data and give it to adapter
         adapter.submitList(generateFakeData())
+    }
+
+    private fun onItemClick(objectDataSample: ObjectDataSample, view : View) {
+        view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+        Toast.makeText(this, objectDataSample.versionName, Toast.LENGTH_LONG).show()
     }
 
     private fun generateFakeData(): MutableList<MyObjectForRecyclerView> {
