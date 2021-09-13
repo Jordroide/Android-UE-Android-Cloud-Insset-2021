@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidCloud2021">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,10 +20,13 @@
         </activity>
         <!-- Parent activity means we will have back button in top of activity and go to the specified activity -->
         <activity
-            android:name=".FirstActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".view.FirstActivity"
+            android:parentActivityName=".view.MainActivity" />
         <activity
-            android:name=".SecondActivity"
-            android:parentActivityName=".FirstActivity" />
+            android:name=".view.SecondActivity"
+            android:parentActivityName=".view.FirstActivity" />
+        <activity
+            android:name=".view.RecyclerViewActivity"
+            android:parentActivityName=".view.MainActivity" />
     </application>
 </manifest>

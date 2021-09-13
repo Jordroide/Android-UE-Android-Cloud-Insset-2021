@@ -1,4 +1,4 @@
-package com.jordroid.android.cloud2021
+package com.jordroid.android.cloud2021.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         binding.mainButtonActivityIntent.setOnClickListener {
             goToActivityIntent()
         }
+
+        binding.mainButtonRecyclerView.setOnClickListener { goToRecyclerView() }
     }
 
     /**
@@ -24,5 +26,9 @@ class MainActivity : AppCompatActivity() {
      */
     private fun goToActivityIntent() {
         startActivity(Intent(this, FirstActivity::class.java))
+    }
+
+    private fun goToRecyclerView() {
+        startActivity(Intent(this, RecyclerViewActivity::class.java))
     }
 }

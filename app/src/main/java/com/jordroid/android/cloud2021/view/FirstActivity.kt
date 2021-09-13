@@ -1,4 +1,4 @@
-package com.jordroid.android.cloud2021
+package com.jordroid.android.cloud2021.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
