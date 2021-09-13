@@ -18,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Parent activity means we will have back button in top of activity and go to the specified activity -->
+        <activity
+            android:name=".FirstActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".SecondActivity"
+            android:parentActivityName=".FirstActivity" />
     </application>
-
 </manifest>
