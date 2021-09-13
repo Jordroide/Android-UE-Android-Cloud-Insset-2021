@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.jordroid.android.cloud2021.R
 import com.jordroid.android.cloud2021.databinding.ItemCustomRecyclerBinding
 import com.jordroid.android.cloud2021.databinding.ItemCustomRecyclerHeaderBinding
 import com.jordroid.android.cloud2021.model.MyObjectForRecyclerView
@@ -92,6 +94,10 @@ class AndroidVersionViewHolder(
         ui = objectDataSample
         binding.itemRecyclerViewVersionName.text = objectDataSample.versionName
         binding.itemRecyclerViewVersionCode.text = "${objectDataSample.versionCode}"
+        Glide.with(itemView.context)
+            .load(objectDataSample.versionImage)
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(binding.itemRecyclerViewVersionImage)
     }
 }
 
