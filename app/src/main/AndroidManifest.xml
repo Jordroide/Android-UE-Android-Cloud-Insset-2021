@@ -28,8 +28,11 @@
         <activity
             android:name=".view.RecyclerViewActivity"
             android:parentActivityName=".view.MainActivity" />
-
-        <activity android:name=".view.StringsActivity"
-            android:parentActivityName=".view.MainActivity"/>
+        <activity
+            android:name=".view.StringsActivity"
+            android:parentActivityName=".view.MainActivity" />
+        <activity
+            android:name=".view.ResourceActivity"
+            android:parentActivityName=".view.MainActivity" />
     </application>
 </manifest>
