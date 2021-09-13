@@ -7,35 +7,60 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jordroid.android.cloud2021.databinding.ItemCustomRecyclerBinding
+import com.jordroid.android.cloud2021.databinding.ItemCustomRecyclerHeaderBinding
+import com.jordroid.android.cloud2021.model.MyObjectForRecyclerView
+import com.jordroid.android.cloud2021.model.ObjectDataHeaderSample
 import com.jordroid.android.cloud2021.model.ObjectDataSample
+import java.lang.RuntimeException
 
-private val diffItemUtils = object : DiffUtil.ItemCallback<ObjectDataSample>() {
+private val diffItemUtils = object : DiffUtil.ItemCallback<MyObjectForRecyclerView>() {
 
-    override fun areItemsTheSame(oldItem: ObjectDataSample, newItem: ObjectDataSample): Boolean {
+    override fun areItemsTheSame(oldItem: MyObjectForRecyclerView, newItem: MyObjectForRecyclerView): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: ObjectDataSample, newItem: ObjectDataSample): Boolean {
+    override fun areContentsTheSame(oldItem: MyObjectForRecyclerView, newItem: MyObjectForRecyclerView): Boolean {
         return oldItem == newItem
     }
 }
 
-class AndroidVersionAdapter :
-    ListAdapter<ObjectDataSample, AndroidVersionViewHolder>(diffItemUtils) {
+class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.ViewHolder>(diffItemUtils) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AndroidVersionViewHolder {
-        Log.d("AndroidCloud2021", "new View Holder created")
-        return AndroidVersionViewHolder(
-            ItemCustomRecyclerBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent, false
-            )
-        )
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        when (viewType) {
+            MyItemType.ROW.type -> {
+                AndroidVersionViewHolder(
+                    ItemCustomRecyclerBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                )
+            }
+            MyItemType.HEADER.type -> {
+                AndroidVersionHeaderViewHolder(
+                    ItemCustomRecyclerHeaderBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                )
+            }
+            else -> throw RuntimeException("Wrong view type received $viewType")
+        }
 
-    override fun onBindViewHolder(holder: AndroidVersionViewHolder, position: Int) {
-        Log.d("AndroidCloud2021", "bind new value to position : [$position]")
-        holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
+        when (holder.itemViewType) {
+            MyItemType.ROW.type -> (holder as AndroidVersionViewHolder).bind(getItem(position) as ObjectDataSample)
+            MyItemType.HEADER.type -> (holder as AndroidVersionHeaderViewHolder).bind(getItem(position) as ObjectDataHeaderSample)
+            else -> throw RuntimeException("Wrong view type received ${holder.itemView}")
+        }
+
+    override fun getItemViewType(position: Int): Int {
+        return when (getItem(position)) {
+            is ObjectDataSample -> MyItemType.ROW.type
+            is ObjectDataHeaderSample -> MyItemType.HEADER.type
+        }
     }
 }
 
@@ -47,4 +72,17 @@ class AndroidVersionViewHolder(
         binding.itemRecyclerViewVersionName.text = objectDataSample.versionName
         binding.itemRecyclerViewVersionCode.text = "${objectDataSample.versionCode}"
     }
+}
+
+class AndroidVersionHeaderViewHolder(
+    private val binding: ItemCustomRecyclerHeaderBinding
+) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(objectDataHeaderSample: ObjectDataHeaderSample) {
+        binding.itemRecyclerViewHeader.text = objectDataHeaderSample.header
+    }
+}
+
+enum class MyItemType(val type: Int) {
+    ROW(0),
+    HEADER(1)
 }

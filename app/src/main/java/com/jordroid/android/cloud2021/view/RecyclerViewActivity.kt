@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jordroid.android.cloud2021.databinding.ActivityRecyclerViewBinding
+import com.jordroid.android.cloud2021.model.MyObjectForRecyclerView
+import com.jordroid.android.cloud2021.model.ObjectDataHeaderSample
 import com.jordroid.android.cloud2021.model.ObjectDataSample
 
 class RecyclerViewActivity : AppCompatActivity() {
@@ -30,8 +32,10 @@ class RecyclerViewActivity : AppCompatActivity() {
         adapter.submitList(generateFakeData())
     }
 
-    private fun generateFakeData(): ArrayList<ObjectDataSample> {
-        return arrayListOf(
+    private fun generateFakeData(): MutableList<MyObjectForRecyclerView> {
+        val result = mutableListOf<MyObjectForRecyclerView>()
+        // Create data raw
+        mutableListOf(
             ObjectDataSample("Android Lollipop", 5),
             ObjectDataSample("Android Marshmallow", 6),
             ObjectDataSample("Android Nougat", 7),
@@ -40,6 +44,15 @@ class RecyclerViewActivity : AppCompatActivity() {
             ObjectDataSample("Android Q", 10),
             ObjectDataSample("Android R", 11),
             ObjectDataSample("Android S", 12)
-        )
+        ).groupBy {
+            // Split in 2 list, modulo and not
+            it.versionCode % 2 == 0
+        }.forEach { (isModulo, items) ->
+            // For each mean for each list split
+            // Here we have a map (key = isModulo) and each key have a list of it's items
+            result.add(ObjectDataHeaderSample("Is modulo : $isModulo"))
+            result.addAll(items)
+        }
+        return result
     }
 }
