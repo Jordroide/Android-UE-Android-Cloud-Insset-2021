@@ -1,4 +1,4 @@
-package com.jordroid.android.cloud2021.view
+package com.jordroid.android.cloud2021.yourFeature.view
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +10,9 @@ import com.bumptech.glide.Glide
 import com.jordroid.android.cloud2021.R
 import com.jordroid.android.cloud2021.databinding.ItemCustomRecyclerBinding
 import com.jordroid.android.cloud2021.databinding.ItemCustomRecyclerHeaderBinding
-import com.jordroid.android.cloud2021.model.MyObjectForRecyclerView
-import com.jordroid.android.cloud2021.model.ObjectDataHeaderSample
-import com.jordroid.android.cloud2021.model.ObjectDataSample
+import com.jordroid.android.cloud2021.yourFeature.model.MyObjectForRecyclerView
+import com.jordroid.android.cloud2021.yourFeature.model.ObjectDataHeaderSample
+import com.jordroid.android.cloud2021.yourFeature.model.ObjectDataSample
 
 private val diffItemUtils = object : DiffUtil.ItemCallback<MyObjectForRecyclerView>() {
 

@@ -1,11 +1,11 @@
-package com.jordroid.android.cloud2021.dao
+package com.jordroid.android.cloud2021.yourFeature.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.jordroid.android.cloud2021.model.LocalDataSourceSample
+import com.jordroid.android.cloud2021.yourFeature.model.LocalDataSourceSample
 
 @Dao
 interface AndroidVersionDao {

@@ -1,4 +1,4 @@
-package com.jordroid.android.cloud2021.view
+package com.jordroid.android.cloud2021.yourFeature.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

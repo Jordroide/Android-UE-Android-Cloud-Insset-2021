@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidCloud2021">
         <activity
-            android:name=".view.MainActivity"
+            android:name=".chuckNorris.view.ChuckNorrisActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,23 +23,23 @@
         </activity>
         <!-- Parent activity means we will have back button in top of activity and go to the specified activity -->
         <activity
-            android:name=".view.FirstActivity"
-            android:parentActivityName=".view.MainActivity" />
+            android:name="com.jordroid.android.cloud2021.yourFeature.view.FirstActivity"
+            android:parentActivityName="com.jordroid.android.cloud2021.yourFeature.view.MainActivity" />
         <activity
-            android:name=".view.SecondActivity"
-            android:parentActivityName=".view.FirstActivity" />
+            android:name="com.jordroid.android.cloud2021.yourFeature.view.SecondActivity"
+            android:parentActivityName="com.jordroid.android.cloud2021.yourFeature.view.FirstActivity" />
         <activity
-            android:name=".view.RecyclerViewActivity"
-            android:parentActivityName=".view.MainActivity" />
+            android:name="com.jordroid.android.cloud2021.yourFeature.view.RecyclerViewActivity"
+            android:parentActivityName="com.jordroid.android.cloud2021.yourFeature.view.MainActivity" />
         <activity
-            android:name=".view.StringsActivity"
-            android:parentActivityName=".view.MainActivity" />
+            android:name="com.jordroid.android.cloud2021.yourFeature.view.StringsActivity"
+            android:parentActivityName="com.jordroid.android.cloud2021.yourFeature.view.MainActivity" />
         <activity
-            android:name=".view.ResourceActivity"
-            android:parentActivityName=".view.MainActivity" />
+            android:name="com.jordroid.android.cloud2021.yourFeature.view.ResourceActivity"
+            android:parentActivityName="com.jordroid.android.cloud2021.yourFeature.view.MainActivity" />
 
         <activity
-            android:name=".view.ValuesLandActivity"
-            android:parentActivityName=".view.MainActivity" />
+            android:name="com.jordroid.android.cloud2021.yourFeature.view.ValuesLandActivity"
+            android:parentActivityName="com.jordroid.android.cloud2021.yourFeature.view.MainActivity" />
     </application>
 </manifest>

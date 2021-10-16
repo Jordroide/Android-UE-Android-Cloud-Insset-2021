@@ -1,10 +1,10 @@
-package com.jordroid.android.cloud2021.repository
+package com.jordroid.android.cloud2021.yourFeature.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.jordroid.android.cloud2021.architecture.CustomApplication
-import com.jordroid.android.cloud2021.model.LocalDataSourceSample
-import com.jordroid.android.cloud2021.model.ObjectDataSample
+import com.jordroid.android.cloud2021.yourFeature.model.LocalDataSourceSample
+import com.jordroid.android.cloud2021.yourFeature.model.ObjectDataSample
 
 class AndroidVersionRepository {
 

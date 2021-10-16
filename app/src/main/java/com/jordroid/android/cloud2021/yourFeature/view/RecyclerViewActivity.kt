@@ -1,4 +1,4 @@
-package com.jordroid.android.cloud2021.view
+package com.jordroid.android.cloud2021.yourFeature.view
 
 import android.os.Bundle
 import android.view.HapticFeedbackConstants
@@ -10,9 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jordroid.android.cloud2021.databinding.ActivityRecyclerViewBinding
-import com.jordroid.android.cloud2021.model.MyObjectForRecyclerView
-import com.jordroid.android.cloud2021.model.ObjectDataSample
-import com.jordroid.android.cloud2021.viewmodel.AndroidVersionViewModel
+import com.jordroid.android.cloud2021.yourFeature.model.MyObjectForRecyclerView
+import com.jordroid.android.cloud2021.yourFeature.model.ObjectDataSample
+import com.jordroid.android.cloud2021.yourFeature.viewmodel.AndroidVersionViewModel
 import kotlin.random.Random
 
 class RecyclerViewActivity : AppCompatActivity() {

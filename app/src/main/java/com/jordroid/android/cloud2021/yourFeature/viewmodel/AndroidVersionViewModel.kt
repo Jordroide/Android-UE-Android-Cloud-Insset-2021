@@ -1,13 +1,13 @@
-package com.jordroid.android.cloud2021.viewmodel
+package com.jordroid.android.cloud2021.yourFeature.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
-import com.jordroid.android.cloud2021.model.MyObjectForRecyclerView
-import com.jordroid.android.cloud2021.model.ObjectDataHeaderSample
-import com.jordroid.android.cloud2021.model.ObjectDataSample
-import com.jordroid.android.cloud2021.repository.AndroidVersionRepository
+import com.jordroid.android.cloud2021.yourFeature.model.MyObjectForRecyclerView
+import com.jordroid.android.cloud2021.yourFeature.model.ObjectDataHeaderSample
+import com.jordroid.android.cloud2021.yourFeature.model.ObjectDataSample
+import com.jordroid.android.cloud2021.yourFeature.repository.AndroidVersionRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
