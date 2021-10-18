@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "653409125010",
+    "project_id": "test-2432c",
+    "storage_bucket": "test-2432c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653409125010:android:4ec87474360bb944b0dc4b",
+        "android_client_info": {
+          "package_name": "com.jordroid.android.cloud2021"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653409125010-ii1agesfrfnhm6gam3t2usj040de77n2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCft0UYD_cNSKbSFZkdLyuo6iXI2N_pgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653409125010-ii1agesfrfnhm6gam3t2usj040de77n2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
