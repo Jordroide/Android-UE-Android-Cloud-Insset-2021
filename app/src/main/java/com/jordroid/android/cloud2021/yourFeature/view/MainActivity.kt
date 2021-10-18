@@ -3,7 +3,9 @@ package com.jordroid.android.cloud2021.yourFeature.view
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.jordroid.android.cloud2021.chuckNorris.view.ChuckNorrisActivity
 import com.jordroid.android.cloud2021.databinding.ActivityMainBinding
+import com.jordroid.android.cloud2021.remoteConfig.view.RemoteConfigurationActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         binding.mainButtonActivityResource.setOnClickListener { goToResources() }
 
         binding.mainButtonActivityValuesLand.setOnClickListener { goToValuesLand() }
+
+        binding.mainButtonActivityRetrofit.setOnClickListener { goToRetrofit() }
+
+        binding.mainButtonActivityRemote.setOnClickListener { goToRemote() }
     }
 
     private fun goToActivityIntent() {
@@ -45,5 +51,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToValuesLand() {
         startActivity(Intent(this, ValuesLandActivity::class.java))
+    }
+
+    private fun goToRetrofit() {
+        startActivity(Intent(this, ChuckNorrisActivity::class.java))
+    }
+
+    private fun goToRemote() {
+        startActivity(Intent(this, RemoteConfigurationActivity::class.java))
     }
 }
