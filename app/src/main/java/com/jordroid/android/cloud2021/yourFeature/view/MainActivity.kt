@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         binding.mainButtonActivityRetrofit.setOnClickListener { goToRetrofit() }
 
         binding.mainButtonActivityRemote.setOnClickListener { goToRemote() }
+
+        binding.mainButtonActivityNotification.setOnClickListener { goToNotification() }
     }
 
     private fun goToActivityIntent() {
@@ -59,5 +61,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToRemote() {
         startActivity(Intent(this, RemoteConfigurationActivity::class.java))
+    }
+
+    private fun goToNotification() {
+        startActivity(Intent(this, NotificationActivity::class.java))
     }
 }

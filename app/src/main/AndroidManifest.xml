@@ -53,9 +53,11 @@
         <activity
             android:name="com.jordroid.android.cloud2021.yourFeature.view.ResourceActivity"
             android:parentActivityName="com.jordroid.android.cloud2021.yourFeature.view.MainActivity" />
-
         <activity
             android:name="com.jordroid.android.cloud2021.yourFeature.view.ValuesLandActivity"
             android:parentActivityName="com.jordroid.android.cloud2021.yourFeature.view.MainActivity" />
+        <activity
+            android:name=".yourFeature.view.NotificationActivity"
+            android:parentActivityName=".yourFeature.view.MainActivity" />
     </application>
 </manifest>
