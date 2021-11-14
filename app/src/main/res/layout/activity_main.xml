@@ -87,10 +87,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Remote Config"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/mainButtonActivityPermission"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/mainButtonActivityRetrofit" />
+
+        <Button
+            android:id="@+id/mainButtonActivityPermission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Permission"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainButtonActivityRemote" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
